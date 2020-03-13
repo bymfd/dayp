@@ -2,14 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.fitc.wifihotspot">
+
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.TETHER_PRIVILEGED" />
 
@@ -21,15 +23,20 @@
         android:supportsRtl="true"
         android:versionCode="1"
         android:versionName="1.0">
+
+
         <service
             android:name=".HotSpotIntentService"
             android:enabled="true"
             android:exported="true" />
 
-        <receiver android:name=".receiver.HotSpotIntentReceiver" android:enabled="true" android:exported="true">
+        <receiver
+            android:name=".receiver.HotSpotIntentReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.fitc.wifihotspot.TURN_ON"/>
-                <action android:name="com.fitc.wifihotspot.TURN_OFF"/>
+                <action android:name="com.fitc.wifihotspot.TURN_ON" />
+                <action android:name="com.fitc.wifihotspot.TURN_OFF" />
             </intent-filter>
         </receiver>
 
@@ -42,8 +49,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".MagicActivity"
             android:theme="@style/Theme.Transparent">
@@ -56,7 +61,6 @@
                 <data android:scheme="wifihotspot" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

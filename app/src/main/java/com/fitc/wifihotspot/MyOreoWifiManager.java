@@ -40,15 +40,15 @@ public class MyOreoWifiManager {
      */
     public void configureHotspot(String name, String password) {
         WifiConfiguration apConfig = new WifiConfiguration();
-        apConfig.SSID = "mfd";
-        apConfig.preSharedKey = "12345678";
+        apConfig.SSID = name;
+        apConfig.preSharedKey = password;
         apConfig.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
         try {
             Method setConfigMethod = mWifiManager.getClass().getMethod("setWifiApConfiguration", WifiConfiguration.class);
             boolean status = (boolean) setConfigMethod.invoke(mWifiManager, apConfig);
-           // Log.d(TAG, "setWifiApConfiguration - success? " + status);
+            Log.d(TAG, "setWifiApConfiguration - success? " + status);
         } catch (Exception e) {
-           // Log.e(TAG, "Error in configureHotspot");
+           Log.e(TAG, "Error in configureHotspot");
             e.printStackTrace();
         }
     }

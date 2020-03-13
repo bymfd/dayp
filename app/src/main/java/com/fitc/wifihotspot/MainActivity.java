@@ -1,9 +1,9 @@
 package com.fitc.wifihotspot;
 
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.hardware.camera2.CameraAccessException;
@@ -11,24 +11,18 @@ import android.hardware.camera2.CameraManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
-import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.TextView;
+
 
 import java.util.List;
 
 public class MainActivity extends PermissionsActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+      private static final String TAG = MainActivity.class.getSimpleName();
     private static final String SHOW_ICON = "show_icon" ;
+   // MyOreoWifiManager configu ;
 
     public boolean torchmode=false;
-    public boolean sesmode=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +31,11 @@ public class MainActivity extends PermissionsActivity {
 
 
 
+
+        //configure hotspot spesifik eğer sistem uygulaması ise
+        //configu.configureHotspot("mmfd","asdasd");
+
         //start hotspott
-
-
 
         Intent intent = new Intent(getString(R.string.intent_action_turnon));
         sendImplicitBroadcast(this,intent);
@@ -47,8 +43,6 @@ public class MainActivity extends PermissionsActivity {
 
 
     }
-
-
 
 
     @Override
@@ -60,18 +54,9 @@ public class MainActivity extends PermissionsActivity {
     public void onClickTurnOnAction(View v){
         MediaPlayer ring = MediaPlayer.create(MainActivity.this, R.raw.sos);
 
-        ring.setVolume(80, 80);
-        if (!sesmode) {
-            ring.setLooping(true); // Set looping
-            ring.start();
-            sesmode=true;
-        }else{
-            ring.setLooping(false); // Set looping
-            ring.stop();ring.setLooping(false); // Set looping
-            sesmode=false;
+        ring.setLooping(false);
 
-        }
-
+        ring.start();
 
     }
     public void onClickTurnOffAction(View v){
