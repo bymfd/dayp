@@ -1,2 +1,2 @@
-# dayp
-şimdilik yok 
+# dayp-site
+dayp projesinin resmi sayılan web sitesi
