@@ -65,33 +65,34 @@ public class MainActivity extends PermissionsActivity {
         intent.setData(Uri.parse("tel:" + "112"));
         startActivity(intent);
     }
-    public void onClickTurnOnData(View v){
-       if (torchmode==false){
-      CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        String cameraId = null;
+    public void onClickTurnOnData(View v) {
         try {
-            cameraId = camManager.getCameraIdList()[0];
-            camManager.setTorchMode(cameraId, true);   //Turn ON
-            torchmode=true;
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
+            if (torchmode == false) {
+                CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                String cameraId = null;
+                try {
+                    cameraId = camManager.getCameraIdList()[0];
+                    camManager.setTorchMode(cameraId, true);   //Turn ON
+                    torchmode = true;
+                } catch (CameraAccessException e) {
+                    e.printStackTrace();
+                }
 
-       torchmode=true;
-       }
-       else{
+                torchmode = true;
+            } else {
 
-           CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-           String cameraId = null;
-           try {
-               cameraId = camManager.getCameraIdList()[0];
-               camManager.setTorchMode(cameraId, false);   //Turn ON
-           } catch (CameraAccessException e) {
-               e.printStackTrace();
-           }
-            torchmode=false;
-       }
+                CameraManager camManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+                String cameraId = null;
+                try {
+                    cameraId = camManager.getCameraIdList()[0];
+                    camManager.setTorchMode(cameraId, false);   //Turn ON
+                } catch (CameraAccessException e) {
+                    e.printStackTrace();
+                }
+                torchmode = false;
+            }
 
+        }catch (Exception e){}
     }
 
     private static void sendImplicitBroadcast(Context ctxt, Intent i) {
