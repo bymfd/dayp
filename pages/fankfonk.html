@@ -1,0 +1,18 @@
+<html>
+
+
+</html>
+<script>
+
+const electron =require("electron");
+const {ipcRenderer} = electron;
+let url = require('url');
+
+
+
+let adr = window.location.href;
+let q = url.parse(adr, true);
+ipcRenderer.send("main",q.query);
+
+console.log(q)
+</script>

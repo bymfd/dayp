@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DAYP GIRIFT </title>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+</head>
+<body>
+
+
+<table id="table" class="display">
+
+
+
+</table>
+
+<script>
+
+    let electron = require("electron");
+    let ipcrenderer = require("electron").ipcRenderer;
+    function secim(macad) {
+        ipcrenderer.send("macad",macad);
+    }
+
+
+
+
+
+
+    require("../assets/jquery.min.js");
+    require("../refresh");
+    require("../assets/jquery.dataTables.min");
+
+
+
+
+</script>
+
+
+</body>
+</html>
+

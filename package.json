@@ -1,0 +1,25 @@
+{
+  "name": "girift",
+  "description": "DAYP NODE.JS api ",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron . --no-sandbox",
+    "bundle:x64": "electron-packager . --platform linux --arch x64 --out dist/",
+    "deb:x64": "electron-installer-debian --src dist/girift-linux-x64/ --arch amd64 --config config.json",
+    "build": "npm run bundle:x64 && npm run deb:x64"
+  },
+  "author": "bymfd",
+  "license": "ISC",
+  "dependencies": {
+    "datatables.net": "^1.10.21",
+    "electron": "^9.1.2",
+    "electron-packager": "^15.0.0",
+    "html-tablify": "^2.0.2",
+    "jquery": "^3.5.1",
+    "node-wifi-scanner": "^1.1.2-np"
+  },
+  "devDependencies": {
+    "electron-installer-debian": "^3.1.0"
+  }
+}

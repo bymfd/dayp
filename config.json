@@ -1,0 +1,13 @@
+{
+  "dest": "dist/installers/",
+  "icon": "mfd.png",
+  "categories": [
+    "Utility"
+  ],
+  "depends": [
+    "git"
+  ],
+  "lintianOverrides": [
+    "changelog-file-missing-in-native-package"
+  ]
+}
